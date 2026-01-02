@@ -1,0 +1,7 @@
+{
+  "name": "ai-devops-incident-companion",
+  "private": true,
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

@@ -1,0 +1,149 @@
+# Serverless Incident Management Dashboard
+
+This project is a deliberately scoped incident management dashboard designed to model how real internal operational tools are built, not how demo applications are marketed.
+
+It prioritises clarity, state integrity, and explainable system behaviour over UI polish or feature volume.
+
+---
+
+## Why This Exists
+
+Most portfolio projects optimise for surface-level complexity:
+- flashy frontends
+- excessive frameworks
+- unrealistic assumptions
+
+This project does the opposite.
+
+It demonstrates how a small but serious internal tool might be designed when:
+- consistency matters more than scale
+- auditability matters more than aesthetics
+- AI is an assistant, not an authority
+
+---
+
+## High-Level Architecture
+
+- **Cloudflare Worker**
+  - Serves both API endpoints and the dashboard UI
+  - Acts as the entry point for all interaction
+
+- **Durable Object**
+  - Single source of truth for all incident data
+  - Strongly consistent, persistent server-side state
+
+- **Thin Client**
+  - Vanilla JavaScript
+  - No frameworks
+  - No client-side persistence
+
+All meaningful state lives on the server.
+
+Reloading the page, closing the browser, or returning later does not affect stored data.
+
+---
+
+## Incident Model
+
+Each incident includes:
+- metadata (ID, title, description, severity)
+- explicit lifecycle state (`Open`, `Investigating`, `Resolved`)
+- timestamps for creation, updates, and resolution
+- append-only context notes
+- AI-generated artefacts
+- a complete timeline of actions
+
+### Lifecycle Rules
+
+- Incidents move explicitly between states
+- Resolved incidents can be reopened
+- Reopening clears resolution timestamps to preserve metric accuracy
+- No state changes happen silently
+
+---
+
+## Context & Auditability
+
+Investigation context is captured through append-only notes, not chat-style messages.
+
+Each note is timestamped, immutable, and part of the permanent audit trail.
+
+Every meaningful system action is recorded in a timeline:
+- incident creation
+- status changes
+- context updates
+- AI output generation
+
+This makes system behaviour explainable and reviewable.
+
+---
+
+## AI Integration (Deliberate & Constrained)
+
+AI is used in a bounded, non-magical way.
+
+It generates:
+- a technical summary
+- suggested next steps
+- a stakeholder-friendly update
+
+AI output is:
+- constrained to provided context
+- severity-aware
+- explicitly instructed not to invent facts
+
+All AI outputs are stored as timestamped artefacts, not conversations.
+
+---
+
+## Metrics
+
+The dashboard calculates operational metrics directly from server-side data:
+- total incidents
+- open vs resolved
+- average resolution time
+
+Metrics are derived only from valid timestamps and update automatically as incidents change state.
+
+---
+
+## UI Philosophy
+
+This is an internal tool, not a consumer product.
+
+Design principles:
+- no frontend framework
+- no animations or visual noise
+- clear hierarchy and readability
+- muted metadata, strong state indicators
+
+Styling choices are communicative, not decorative.
+
+---
+
+## Scope & Trade-offs
+
+The following are intentionally out of scope:
+- authentication
+- multi-user isolation
+- role-based access control
+
+The system currently uses a single global incident store, which is appropriate for:
+- demos
+- portfolio review
+- architectural discussion
+
+These omissions are conscious trade-offs, not oversights.
+
+---
+
+## What This Project Demonstrates
+
+- serverless backend design
+- stateful systems using Durable Objects
+- operationally realistic workflows
+- audit-first data modelling
+- intentional UI restraint
+- sound architectural judgment
+
+This project is designed to be discussed, extended, and reviewed — not just run.

@@ -22,6 +22,8 @@ It demonstrates how a small but serious internal tool might be designed when:
 
 ## High-Level Architecture
 
+![Architecture Diagram](docs/architecture.png)
+
 - **Cloudflare Worker**
   - Serves both API endpoints and the dashboard UI
   - Acts as the entry point for all interaction

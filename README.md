@@ -4,23 +4,21 @@ This project is a deliberately scoped incident management dashboard designed to 
 
 It prioritises clarity, state integrity, and explainable system behaviour over UI polish or feature volume.
 
----
 
 ## Why This Exists
 
 Most portfolio projects optimise for surface-level complexity:
-- flashy frontends
-- excessive frameworks
-- unrealistic assumptions
+- Flashy frontends
+- Excessive frameworks
+- Unrealistic assumptions
 
 This project does the opposite.
 
 It demonstrates how a small but serious internal tool might be designed when:
-- consistency matters more than scale
-- auditability matters more than aesthetics
+- Consistency matters more than scale
+- Auditability matters more than aesthetics
 - AI is an assistant, not an authority
 
----
 
 ## High-Level Architecture
 
@@ -41,17 +39,16 @@ All meaningful state lives on the server.
 
 Reloading the page, closing the browser, or returning later does not affect stored data.
 
----
 
 ## Incident Model
 
 Each incident includes:
-- metadata (ID, title, description, severity)
-- explicit lifecycle state (`Open`, `Investigating`, `Resolved`)
-- timestamps for creation, updates, and resolution
-- append-only context notes
+- Metadata (ID, title, description, severity)
+- Explicit lifecycle state (`Open`, `Investigating`, `Resolved`)
+- Timestamps for creation, updates, and resolution
+- Append-only context notes
 - AI-generated artefacts
-- a complete timeline of actions
+- aA complete timeline of actions
 
 ### Lifecycle Rules
 
@@ -60,7 +57,6 @@ Each incident includes:
 - Reopening clears resolution timestamps to preserve metric accuracy
 - No state changes happen silently
 
----
 
 ## Context & Auditability
 
@@ -69,81 +65,76 @@ Investigation context is captured through append-only notes, not chat-style mess
 Each note is timestamped, immutable, and part of the permanent audit trail.
 
 Every meaningful system action is recorded in a timeline:
-- incident creation
-- status changes
-- context updates
+- Incident creation
+- Status changes
+- Context updates
 - AI output generation
 
 This makes system behaviour explainable and reviewable.
 
----
 
 ## AI Integration (Deliberate & Constrained)
 
 AI is used in a bounded, non-magical way.
 
 It generates:
-- a technical summary
-- suggested next steps
-- a stakeholder-friendly update
+- A technical summary
+- Suggested next steps
+- A stakeholder-friendly update
 
 AI output is:
-- constrained to provided context
-- severity-aware
-- explicitly instructed not to invent facts
+- Constrained to provided context
+- Severity-aware
+- Explicitly instructed not to invent facts
 
 All AI outputs are stored as timestamped artefacts, not conversations.
 
----
 
 ## Metrics
 
 The dashboard calculates operational metrics directly from server-side data:
-- total incidents
-- open vs resolved
-- average resolution time
+- Total incidents
+- Open vs resolved
+- Average resolution time
 
 Metrics are derived only from valid timestamps and update automatically as incidents change state.
 
----
 
 ## UI Philosophy
 
 This is an internal tool, not a consumer product.
 
 Design principles:
-- no frontend framework
-- no animations or visual noise
-- clear hierarchy and readability
-- muted metadata, strong state indicators
+- No frontend framework
+- No animations or visual noise
+- Clear hierarchy and readability
+- Muted metadata, strong state indicators
 
 Styling choices are communicative, not decorative.
 
----
 
 ## Scope & Trade-offs
 
 The following are intentionally out of scope:
-- authentication
-- multi-user isolation
-- role-based access control
+- Authentication
+- Multi-user isolation
+- Role-based access control
 
 The system currently uses a single global incident store, which is appropriate for:
-- demos
-- portfolio review
-- architectural discussion
+- Demos
+- Portfolio review
+- Architectural discussion
 
 These omissions are conscious trade-offs, not oversights.
 
----
 
 ## What This Project Demonstrates
 
-- serverless backend design
-- stateful systems using Durable Objects
-- operationally realistic workflows
-- audit-first data modelling
-- intentional UI restraint
-- sound architectural judgment
+- Serverless backend design
+- Stateful systems using Durable Objects
+- Operationally realistic workflows
+- Audit-first data modelling
+- Intentional UI restraint
+- Sound architectural judgment
 
-This project is designed to be discussed, extended, and reviewed — not just run.
+This project is designed to be discussed, extended, and reviewed - Not to just run.

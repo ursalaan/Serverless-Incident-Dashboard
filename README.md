@@ -1,11 +1,11 @@
-# Serverless Incident Management Dashboard
+# Serverless Incident Management Dashboard:
 
 This project is a deliberately scoped incident management dashboard designed to model how real internal operational tools are built, not how demo applications are marketed.
 
 It prioritises clarity, state integrity, and explainable system behaviour over UI polish or feature volume.
 
 
-## Why This Exists
+## Why This Exists:
 
 Most portfolio projects optimise for surface-level complexity:
 - Flashy frontends
@@ -20,7 +20,7 @@ It demonstrates how a small but serious internal tool might be designed when:
 - AI is an assistant, not an authority
 
 
-## High-Level Architecture
+## High-Level Architecture:
 
 ![Architecture Diagram](docs/architecture.png)
 
@@ -42,7 +42,7 @@ All meaningful state lives on the server.
 Reloading the page, closing the browser, or returning later does not affect stored data.
 
 
-## Incident Model
+## Incident Model:
 
 Each incident includes:
 - Metadata (ID, title, description, severity)
@@ -52,7 +52,7 @@ Each incident includes:
 - AI-generated artefacts
 - aA complete timeline of actions
 
-### Lifecycle Rules
+### Lifecycle Rules:
 
 - Incidents move explicitly between states
 - Resolved incidents can be reopened
@@ -60,7 +60,7 @@ Each incident includes:
 - No state changes happen silently
 
 
-## Context & Auditability
+## Context & Auditability:
 
 Investigation context is captured through append-only notes, not chat-style messages.
 
@@ -75,7 +75,7 @@ Every meaningful system action is recorded in a timeline:
 This makes system behaviour explainable and reviewable.
 
 
-## AI Integration (Deliberate & Constrained)
+## AI Integration (Deliberate & Constrained):
 
 AI is used in a bounded, non-magical way.
 
@@ -92,7 +92,7 @@ AI output is:
 All AI outputs are stored as timestamped artefacts, not conversations.
 
 
-## Metrics
+## Metrics:
 
 The dashboard calculates operational metrics directly from server-side data:
 - Total incidents
@@ -102,7 +102,7 @@ The dashboard calculates operational metrics directly from server-side data:
 Metrics are derived only from valid timestamps and update automatically as incidents change state.
 
 
-## UI Philosophy
+## UI Philosophy:
 
 This is an internal tool, not a consumer product.
 
@@ -115,7 +115,7 @@ Design principles:
 Styling choices are communicative, not decorative.
 
 
-## Scope & Trade-offs
+## Scope & Trade-offs:
 
 The following are intentionally out of scope:
 - Authentication
@@ -130,7 +130,7 @@ The system currently uses a single global incident store, which is appropriate f
 These omissions are conscious trade-offs, not oversights.
 
 
-## What This Project Demonstrates
+## What This Project Demonstrates:
 
 - Serverless backend design
 - Stateful systems using Durable Objects

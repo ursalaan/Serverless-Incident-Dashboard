@@ -22,7 +22,11 @@ It demonstrates how a small but serious internal tool might be designed when:
 
 ## High-Level Architecture:
 
+The diagram below shows the core data flow and responsibility boundaries in the system.
+
+
 ![Architecture Diagram](docs/architecture.png)
+
 
 - **Cloudflare Worker**
   - Serves both API endpoints and the dashboard UI

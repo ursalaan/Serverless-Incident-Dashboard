@@ -140,3 +140,17 @@ These omissions are conscious trade-offs, not oversights.
 - Sound architectural judgment
 
 This project is designed to be discussed, extended, and reviewed - Not to just run.
+
+
+## Future Work
+
+The current scope is intentionally limited, but the architecture leaves room for sensible extensions if this were taken further.
+
+Examples include:
+
+- Adding authentication and basic multi-user isolation so incidents can be owned and worked on by different people.
+- Introducing simple role distinctions (e.g. responders vs. observers) without overcomplicating access control.
+- Expanding operational metrics using the existing audit data, such as time to first response or investigation duration.
+- Integrating external notifications (for example Slack or email) triggered directly from incident state changes.
+
+These changes would build on the existing design rather than reshape it, keeping the system focused on clarity, auditability, and explicit workflows.
